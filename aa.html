@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>시간 계산기</title>
+        <meta charset = "UTF-8">
+        <style>
+            body {
+                margin: 0;
+            }
+            .back {
+                background-image: url(abc.jpg);
+                background-repeat: no-repeat;
+                background-size: 2000px 1000px;
+            }
+            .number {
+                text-align: center;
+                font-size: 70px;
+            }
+
+            .right-left {
+                overflow: hidden;
+            }
+
+            .left {
+                float: left;
+            }
+
+            .right {
+                float: right;
+            }
+        </style>
+    </head>
+    <body class="back">
+        <h1 class="number">기 념 일 계 산 기</h1>
+
+        <div class= "right-left">
+            <h1 class = "left">지나온 날</h2>
+            <div class = "right">
+                <h1 id = "date">354일</h3>
+                <h1 id = "your">2020.07.27</h3>
+            </div>
+        </div>
+
+        <div class= "right-left">
+            <h1 class = "left">500일</h2>
+            <div class = "right">
+                <h1 id = "date500">354일</h3>
+                <h1 id = "your500">2020.07.27</h3>
+            </div>
+        </div>
+
+        <div class= "right-left">
+            <h1 class = "left">600일</h2>
+            <div class = "right">
+                <h1 id = "date600">354일</h3>
+                <h1 id = "your600">2020.07.27</h3>
+            </div>
+        </div>
+
+        <div class= "right-left">
+            <h1 class = "left">2주년</h2>
+            <div class = "right">
+                <h1 id = "date2year">354일</h3>
+                <h1 id = "your2year">2020.07.27</h3>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        //지나온날
+        var now = new Date();
+        var firstday = new Date("2020-07-27");
+        var meet = now.getTime() - firstday.getTime();
+        var passedDay = Math.floor(meet / (1000 * 60 * 60 * 24) + 1);
+        document.getElementById('date').innerHTML = passedDay + '일'
+
+
+        //500일
+        var day500 = new Date(firstday.getTime() + 499 * (1000 * 60 * 60 * 24))
+        document.getElementById('your500').innerHTML = day500.getFullYear() + '-' + (day500.getMonth() + 1) + '-' + day500.getDate()
+
+        
+        var day5002 = day500.getTime() - now.getTime()
+        var pass = Math.floor(day5002 / (1000 * 60 * 60 * 24) + 1)
+        document.getElementById('date500').innerHTML = pass + '일'
+        //500일 끝
+
+        //600일
+        var day600 = new Date(firstday.getTime() + 599 * (1000 * 60 * 60 * 24))
+        document.getElementById('your600').innerHTML = day600.getFullYear() + '-' + (day600.getMonth() + 1) + '-' + day600.getDate()
+
+        
+        var day6002 = day600.getTime() - now.getTime()
+        var pass = Math.floor(day6002 / (1000 * 60 * 60 * 24) + 1)
+        document.getElementById('date600').innerHTML = pass + '일'
+        //600일 끝
+
+        //2주년
+        var day22year = new Date(firstday.getTime() + 729 * (1000 * 60 * 60 * 24))
+        document.getElementById('your2year').innerHTML = day22year.getFullYear() + '-' + (day22year.getMonth() + 1) + '-' + day22year.getDate()
+
+        
+        var day2222 = day22year.getTime() - now.getTime()
+        var pass = Math.floor(day2222 / (1000 * 60 * 60 * 24) + 1)
+        document.getElementById('date2year').innerHTML = pass + '일'
+        //2주년 끝
+    </script>
+</html>
